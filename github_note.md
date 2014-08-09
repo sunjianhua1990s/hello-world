@@ -57,11 +57,15 @@ $ make devserver
 
 
 ###文章开头
-Title: 文章标题
-Date: 2013-04-18
-Category: 文章类别
-Tag: 标签1, 标签2
-slug:别名
+Date: 2014-05-30
+Title: 《Head First 设计模式》学习笔记——单件模式
+Category: Tech
+Tags: 设计模式,单件模式
+Slug: head_first_singleton
 
+特殊字符自动转换
 
+在 HTML 文件中，有两个字符需要特殊处理： < 和 & 。 < 符号用于起始标签，& 符号则用于标记 HTML 实体，如果你只是想要显示这些字符的原型，你必须要使用实体的形式，像是 &lt; 和 &amp;。
+
+不过需要注意的是，code 范围内，不论是行内还是区块， < 和 & 两个符号都一定会被转换成 HTML 实体，这项特性让你可以很容易地用 Markdown 写 HTML code （和 HTML 相对而言， HTML 语法中，你要把所有的 < 和 & 都转换为 HTML 实体，才能在 HTML 文件里面写出 HTML code。）
 
