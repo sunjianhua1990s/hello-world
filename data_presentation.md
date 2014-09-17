@@ -6,17 +6,17 @@
 2. 加法的优先级比移位要高，所以1<<2+3<<4，得到结果时(1<<(2+3))<<4。
 
 ###整数表示
->char 1B 2^-7 ~ 2^7
+>char 1B -2^7 ~ 2^7
 
->short 2B    2^-15~2^15
+>short 2B    -2^15 ~ 2^15-1
 
->int 4B  2^-31~2^31
+>int 4B  2^-31 ~ 2^31
 
->long 32bit   4B 2^-31~2^31
+>long 32bit   4B -2^31 ~ 2^31
 
->long 64bit   8B 2^-63~2^63
+>long 64bit   8B -2^63 ~ 2^63
 
->long long 8B 2^-63~2^63
+>long long 8B -2^63 ~2^63
 gcc编译器中使用**-std=c99**使用long long
 
 ###补码
@@ -29,21 +29,26 @@ gcc编译器中使用**-std=c99**使用long long
 
 ###整数运算
 1. 整数相加溢出检查
-    int tadd_ok(int x, int y)
+
+```C
+	int tadd_ok(int x, int y)
     {
         int sum = x + y;
         int neg_over = x < 0 && y < 0 && sum > = 0;
         int pos_over = x >= 0 && y >= 0 && sum < 0;
         return !neg_over && !pos_over;
     }
-    
+
+```    
 2. 整数相乘溢出检测
-    
+
+```C
     int tmult_ok(int x, int y)
     {
         int p = x*y;
         return !x || p/x==y;
     }
+```
 
 证明过程：
 
